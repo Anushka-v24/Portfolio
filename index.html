@@ -8,7 +8,7 @@
 <meta property="og:title" content="Anushka Verma — Software & AI Engineer">
 <meta property="og:description" content="Full-stack, AI/ML and systems projects by Anushka Verma.">
 <meta property="og:image" content="assets/portrait-formal.jpg">
-<meta name="theme-color" content="#FBF9F5">
+<meta name="theme-color" content="#08090C">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%23A9783C'/><text x='32' y='43' font-family='Georgia,serif' font-size='30' font-style='italic' text-anchor='middle' fill='white'>av</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,51 +21,39 @@
 </script>
 <style>
   /* ============ design tokens ============ */
-  /* light is the default look; the toggle (and an OS dark setting) switch to dark */
+  /* dark is the default look; the toggle (and an OS light setting) switch to light */
   :root{
-    --bg:#FBF9F5;
-    --bg-2:#F3F0E9;
-    --surface:rgba(255,255,255,0.78);
-    --surface-solid:#FFFFFF;
-    --ink:#0F0E16;
-    --muted:#423E50;
-    --muted-2:#6B6578;
-    --line:rgba(23,22,32,0.14);
-    --line-soft:rgba(23,22,32,0.08);
-    --accent:#A9672B;
-    --accent-ink:#8A5220;
-    --accent-soft:rgba(169,103,43,0.12);
-    --accent-line:rgba(169,103,43,0.38);
-    --violet:#5A62D8;
-    --good:#2F8F5B;
+    --bg:#08090C;
+    --bg-2:#0D0F14;
+    --surface:rgba(255,255,255,0.05);
+    --surface-solid:#12141A;
+    --ink:#FFFFFF;
+    --muted:#E4E0EA;
+    --muted-2:#BDB7C8;
+    --line:rgba(244,241,236,0.14);
+    --line-soft:rgba(244,241,236,0.07);
+    --accent:#E9A961;
+    --accent-ink:#F0BC82;
+    --accent-soft:rgba(233,169,97,0.13);
+    --accent-line:rgba(233,169,97,0.42);
+    --violet:#8C93F8;
+    --good:#5BC98A;
     --glass-blur:saturate(1.25) blur(16px);
-    --shadow:0 1px 2px rgba(23,22,32,0.05), 0 14px 38px rgba(23,22,32,0.10);
-    --shadow-lg:0 34px 80px rgba(23,22,32,0.20);
-    --radius:20px;
-    --nav-h:72px;
-    color-scheme:light;
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --bg:#08090C; --bg-2:#0D0F14; --surface:rgba(255,255,255,0.05); --surface-solid:#12141A;
-      --ink:#FFFFFF; --muted:#E4E0EA; --muted-2:#BDB7C8;
-      --line:rgba(244,241,236,0.14); --line-soft:rgba(244,241,236,0.07);
-      --accent:#E9A961; --accent-ink:#F0BC82; --accent-soft:rgba(233,169,97,0.13); --accent-line:rgba(233,169,97,0.42);
-      --violet:#8C93F8; --good:#5BC98A;
-      --shadow:0 1px 2px rgba(0,0,0,0.4), 0 14px 40px rgba(0,0,0,0.42);
-      --shadow-lg:0 40px 90px rgba(0,0,0,0.6);
-      color-scheme:dark;
-    }
-  }
-  :root[data-theme="dark"]{
-    --bg:#08090C; --bg-2:#0D0F14; --surface:rgba(255,255,255,0.05); --surface-solid:#12141A;
-    --ink:#FFFFFF; --muted:#E4E0EA; --muted-2:#BDB7C8;
-    --line:rgba(244,241,236,0.14); --line-soft:rgba(244,241,236,0.07);
-    --accent:#E9A961; --accent-ink:#F0BC82; --accent-soft:rgba(233,169,97,0.13); --accent-line:rgba(233,169,97,0.42);
-    --violet:#8C93F8; --good:#5BC98A;
     --shadow:0 1px 2px rgba(0,0,0,0.4), 0 14px 40px rgba(0,0,0,0.42);
     --shadow-lg:0 40px 90px rgba(0,0,0,0.6);
+    --radius:20px;
+    --nav-h:72px;
     color-scheme:dark;
+  }
+  :root[data-theme="light"]{
+    --bg:#FBF9F5; --bg-2:#F3F0E9; --surface:rgba(255,255,255,0.78); --surface-solid:#FFFFFF;
+    --ink:#0F0E16; --muted:#423E50; --muted-2:#6B6578;
+    --line:rgba(23,22,32,0.14); --line-soft:rgba(23,22,32,0.08);
+    --accent:#A9672B; --accent-ink:#8A5220; --accent-soft:rgba(169,103,43,0.12); --accent-line:rgba(169,103,43,0.38);
+    --violet:#5A62D8; --good:#2F8F5B;
+    --shadow:0 1px 2px rgba(23,22,32,0.05), 0 14px 38px rgba(23,22,32,0.10);
+    --shadow-lg:0 34px 80px rgba(23,22,32,0.20);
+    color-scheme:light;
   }
 
   /* ============ backdrop: grid, glow, dot matrix ============ */
@@ -114,12 +102,8 @@
   @keyframes gridDrift{ to{ transform:translate3d(-72px, -72px, 0); } }
   @keyframes float1{ 50%{ transform:translate3d(6vw, 5vh, 0) scale(1.1); } }
   @keyframes float2{ 50%{ transform:translate3d(-5vw, -6vh, 0) scale(1.08); } }
-  :root[data-theme="light"] .bgfx .orb{ opacity:0.22; }
+  :root[data-theme="light"] .bgfx .orb{ opacity:0.14; }
   :root[data-theme="light"] .bgfx .scan{ display:none; }
-  @media (prefers-color-scheme: light){
-    :root:not([data-theme="dark"]) .bgfx .orb{ opacity:0.22; }
-    :root:not([data-theme="dark"]) .bgfx .scan{ display:none; }
-  }
 
   /* ============ base ============ */
   *,*::before,*::after{ margin:0; padding:0; box-sizing:border-box; }
@@ -193,13 +177,9 @@
   }
   .icon-btn:hover{ border-color:var(--ink); }
   .icon-btn svg{ width:17px; height:17px; }
-  .theme-toggle .sun{ display:none; }
-  :root[data-theme="dark"] .theme-toggle .sun{ display:block; }
-  :root[data-theme="dark"] .theme-toggle .moon{ display:none; }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]) .theme-toggle .sun{ display:block; }
-    :root:not([data-theme="light"]) .theme-toggle .moon{ display:none; }
-  }
+  .theme-toggle .moon{ display:none; }
+  :root[data-theme="light"] .theme-toggle .sun{ display:none; }
+  :root[data-theme="light"] .theme-toggle .moon{ display:block; }
   .burger{ display:none; }
   @media (max-width:1120px){
     .nav-links{ display:none; }
@@ -218,14 +198,14 @@
   /* ============ tab views ============ */
   main > .view{ display:none; }
   main > .view.active{ display:block; animation:viewIn .4s ease both; }
-  main > .view:not(.hero){ padding-top:calc(var(--nav-h) + 54px); min-height:calc(100vh - 120px); }
-  #education{ padding-top:calc(var(--nav-h) + 34px); padding-bottom:48px; }
+  main > .view:not(.hero){ padding-top:calc(var(--nav-h) + 8px); min-height:calc(100vh - 120px); }
+  #education{ padding-top:calc(var(--nav-h) + 8px); padding-bottom:48px; }
   #education .sec-head{ margin-bottom:26px; }
   @keyframes viewIn{ from{ opacity:0; transform:translateY(12px); } }
   @media (prefers-reduced-motion: reduce){ main > .view.active{ animation:none; } }
 
   /* ============ hero ============ */
-  .hero{ padding:calc(var(--nav-h) + 78px) 0 44px; position:relative; isolation:isolate; }
+  .hero{ padding:calc(var(--nav-h) + 30px) 0 44px; position:relative; isolation:isolate; }
 
   .hero::before{
     content:''; position:absolute; inset:0; z-index:-3; pointer-events:none;
@@ -299,7 +279,7 @@
   .stat span{ display:block; margin-top:8px; font-size:13px; color:var(--muted); }
 
   @media (max-width:900px){
-    .hero{ padding-top:calc(var(--nav-h) + 36px); }
+    .hero{ padding-top:calc(var(--nav-h) + 16px); }
     .hero-grid{ grid-template-columns:1fr; gap:48px; }
     .portrait{ justify-self:center; max-width:340px; }
     .fc-1{ left:-18px; top:-5%; } .fc-2{ right:-14px; }
@@ -319,27 +299,17 @@
   .hero h1, .hero .role, .hero-lede, .sec-head h2, .sec-head p, .sec-head .eyebrow,
   .about-text p, .edu-item .when, .edu-item h3, .edu-item p, .col-title,
   .contact h2, .contact p, .contact .eyebrow{
-    text-shadow:0 1px 2px rgba(255,255,255,0.75), 0 0 10px rgba(255,255,255,0.45);
-  }
-  :root[data-theme="dark"] .hero h1, :root[data-theme="dark"] .hero .role,
-  :root[data-theme="dark"] .hero-lede, :root[data-theme="dark"] .sec-head h2,
-  :root[data-theme="dark"] .sec-head p, :root[data-theme="dark"] .sec-head .eyebrow,
-  :root[data-theme="dark"] .about-text p, :root[data-theme="dark"] .edu-item .when,
-  :root[data-theme="dark"] .edu-item h3, :root[data-theme="dark"] .edu-item p,
-  :root[data-theme="dark"] .col-title, :root[data-theme="dark"] .contact h2,
-  :root[data-theme="dark"] .contact p, :root[data-theme="dark"] .contact .eyebrow{
     text-shadow:0 1px 3px rgba(0,0,0,0.85), 0 0 14px rgba(0,0,0,0.6);
   }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]) .hero h1, :root:not([data-theme="light"]) .hero .role,
-    :root:not([data-theme="light"]) .hero-lede, :root:not([data-theme="light"]) .sec-head h2,
-    :root:not([data-theme="light"]) .sec-head p, :root:not([data-theme="light"]) .sec-head .eyebrow,
-    :root:not([data-theme="light"]) .about-text p, :root:not([data-theme="light"]) .edu-item .when,
-    :root:not([data-theme="light"]) .edu-item h3, :root:not([data-theme="light"]) .edu-item p,
-    :root:not([data-theme="light"]) .col-title, :root:not([data-theme="light"]) .contact h2,
-    :root:not([data-theme="light"]) .contact p, :root:not([data-theme="light"]) .contact .eyebrow{
-      text-shadow:0 1px 3px rgba(0,0,0,0.85), 0 0 14px rgba(0,0,0,0.6);
-    }
+  :root[data-theme="light"] .hero h1, :root[data-theme="light"] .hero .role,
+  :root[data-theme="light"] .hero-lede, :root[data-theme="light"] .sec-head h2,
+  :root[data-theme="light"] .sec-head p, :root[data-theme="light"] .sec-head .eyebrow,
+  :root[data-theme="light"] .about-text p, :root[data-theme="light"] .edu-item .when,
+  :root[data-theme="light"] .edu-item h3, :root[data-theme="light"] .edu-item p,
+  :root[data-theme="light"] .col-title, :root[data-theme="light"] .contact h2,
+  :root[data-theme="light"] .contact p, :root[data-theme="light"] .contact .eyebrow{
+    text-shadow:0 1px 2px rgba(255,255,255,0.75), 0 0 10px rgba(255,255,255,0.45);
+  }
   }
 
   /* glass surfaces */
@@ -349,10 +319,6 @@
   .proj, .job, .skill-card, .stats{ background-image:linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0) 42%); }
   :root[data-theme="light"] .proj, :root[data-theme="light"] .job,
   :root[data-theme="light"] .skill-card, :root[data-theme="light"] .stats{ background-image:none; }
-  @media (prefers-color-scheme: light){
-    :root:not([data-theme="dark"]) .proj, :root:not([data-theme="dark"]) .job,
-    :root:not([data-theme="dark"]) .skill-card, :root:not([data-theme="dark"]) .stats{ background-image:none; }
-  }
 
   /* ============ sections ============ */
   section{ padding:96px 0; }
@@ -571,7 +537,15 @@
   .edu-item h3{ font-size:17px; margin-top:4px; }
   .edu-item p{ font-size:14px; color:var(--muted); margin-top:4px; }
   .edu-item .score{ display:inline-block; margin-top:8px; }
-  .edu-footnote{ margin-top:16px; font-size:14px; color:var(--muted); }
+  .edu-footnote{
+    margin-top:16px; font-size:13.5px; color:var(--ink);
+    display:inline-flex; align-items:center; gap:9px;
+    padding:9px 16px; border-radius:100px;
+    border:1px solid var(--line); background:var(--surface);
+    backdrop-filter:var(--glass-blur); -webkit-backdrop-filter:var(--glass-blur);
+    box-shadow:var(--shadow); text-shadow:none;
+  }
+  .edu-footnote::before{ content:''; width:7px; height:7px; border-radius:50%; background:var(--accent); flex-shrink:0; }
   @media (max-width:760px){
     .edu-item.with-shot{ grid-template-columns:1fr; gap:14px; }
     .edu-photo-gap{ display:none; }
@@ -1416,7 +1390,7 @@ lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
 /* theme */
 $('#themeToggle').addEventListener('click', () => {
   const root = document.documentElement;
-  const isDark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDark = root.dataset.theme !== 'light';
   root.dataset.theme = isDark ? 'light' : 'dark';
   try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
 });
@@ -1511,9 +1485,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   const saveData = navigator.connection && navigator.connection.saveData;
   if (!canvas || reduced || small || saveData) return;
 
-  const isDark = () => document.documentElement.dataset.theme
-    ? document.documentElement.dataset.theme === 'dark'
-    : matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDark = () => document.documentElement.dataset.theme !== 'light';
 
   let renderer, scene, camera, group, points, lines, visible = true;
   const pointer = { x:0, y:0, tx:0, ty:0 };
@@ -1620,8 +1592,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     }, { passive:true });
     document.addEventListener('visibilitychange', () => { visible = !document.hidden; });
     $('#themeToggle').addEventListener('click', () => setTimeout(applyTheme, 0));
-    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
-    tick();
+      tick();
   }
 
   function resize(){
